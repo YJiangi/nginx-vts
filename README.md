@@ -1,4 +1,5 @@
 demo_yaml:
+```bash
 ----
 apiVersion: apps/v1
 kind: Deployment
@@ -26,6 +27,9 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 80
+```
 ---------
 Build command:
-docker buildx build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  --platform=linux/arm64,linux/amd64 -t nginx-vts:lts . --push 
+```bash
+docker buildx build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  --platform=linux/arm64,linux/amd64 -t nginx-vts:lts . --push
+```
