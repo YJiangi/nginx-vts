@@ -29,7 +29,12 @@ spec:
             - containerPort: 80
 ```
 ---------
-Build command:
+Build command：
 ```bash
+Multi-schema compilation image:
 docker buildx build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  --platform=linux/arm64,linux/amd64 -t nginx-vts:lts . --push
+```
+```bash
+Compile image:
+docker  build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  -t nginx-vts:lts . 
 ```
