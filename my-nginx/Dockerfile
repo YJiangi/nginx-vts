@@ -80,3 +80,5 @@ RUN --mount=type=bind,target=/tmp/packages/,source=/tmp/packages/,from=builder \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo Asia/Shanghai > /etc/timezone \
     && rm -rf /var/lib/apt/lists/
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
