@@ -78,5 +78,7 @@ RUN --mount=type=bind,target=/tmp/packages/,source=/tmp/packages/,from=builder \
        done \
     && sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo Asia/Shanghai > /etc/timezone
+    && echo Asia/Shanghai > /etc/timezone \
     && rm -rf /var/lib/apt/lists/
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf

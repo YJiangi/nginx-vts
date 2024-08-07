@@ -1,4 +1,18 @@
-demo_yaml:
+###### 1. Please refer to the official [website](https://github.com/nginxinc/docker-nginx/blob/master/modules/README.md)
+
+---------
+###### 2. Build command：
+```bash
+Multi-schema compilation image:
+docker buildx build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  --platform=linux/arm64,linux/amd64 -t nginx-vts:lts . --push
+```
+```bash
+Compile image:
+docker  build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  -t nginx-vts:lts . 
+```
+
+###### 3. demo_yaml:
+```bash
 ----
 apiVersion: apps/v1
 kind: Deployment
@@ -26,6 +40,4 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 80
----------
-Build command:
-docker buildx build --progress=plain --no-cache --build-arg ENABLED_MODULES="cachepurge"  --platform=linux/arm64,linux/amd64 -t nginx-vts:lts . --push 
+```
